@@ -1,0 +1,38 @@
+{
+  "register": {
+    "symbolic-link": {}, 
+    "boot-priority": {}, 
+    "share-folder": [], 
+    "port": [], 
+    "prerequisites": {
+      "enable-service": [
+        "httpd", 
+        "mysql"
+      ], 
+      "restart-service": []
+    }
+  },
+  "adm-desktop": {
+    "privilege": {
+      "accessible": "users",
+      "customizable": true
+    },
+    "app": {
+      "type": "webserver"
+    }
+  },
+  "general": {
+    "website": "http://www.kodcloud.com/",
+    "maintainer": "kodcloud",
+    "name": "可道云KodBox",
+    "package": "kodbox",
+    "firmware": "4.0.0",
+    "depends": [],
+    "version": "1.43",
+    "architecture": "any",
+    "conflicts": [], 
+    "email": "support@kodcloud.com",
+    "developer": "kodcloud"
+  }
+}
+
