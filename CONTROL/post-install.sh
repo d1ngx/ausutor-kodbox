@@ -16,9 +16,19 @@ case "$APKG_PKG_STATUS" in
 		DB_PWD=$(grep "DB_PWD" $APKG_PKG_DIR/www/config/setting_user.php | cut -d "'" -f 4)
 
 		if [ "$APKG_PKG_INST_VER" = 1.12 ];then
-			mysql -u${DB_USER} -p${DB_PWD} ${DB_NAME} < $APKG_PKG_DIR/www/app/controller/install/data/update1.14/mysql.sql
+			mv $APKG_PKG_DIR/www/config/update.php $APKG_PKG_DIR/www/app/
+			#mysql -u${DB_USER} -p${DB_PWD} ${DB_NAME} < $APKG_PKG_DIR/www/app/controller/install/data/update1.14/mysql.sql
 		fi
 
+		case "${DB_NAME}" in
+                  *".php")
+		    echo "cp -af $KodBox_TEMP_DIR/${DB_NAME} $APKG_PKG_DIR/www/data/system/" >> /var/log/kodbox.log
+		    cp -af $KodBox_TEMP_DIR/${DB_NAME} $APKG_PKG_DIR/www/data/system/
+                    ;;
+                  *)
+                    echo "Normal update finished." >> /var/log/kodbox.log
+                    ;;
+                esac
                 ;;
         *)
                 ;;
