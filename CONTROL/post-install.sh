@@ -11,13 +11,13 @@ case "$APKG_PKG_STATUS" in
 		cp -af $KodBox_TEMP_DIR/files $APKG_PKG_DIR/www/data/
 		touch $APKG_PKG_DIR/www/data/system/install.lock
 
-		DB_USER=$(grep "DB_USER" $APKG_PKG_DIR/www/config/setting_user.php | cut -d "'" -f 4)
+		# DB_USER=$(grep "DB_USER" $APKG_PKG_DIR/www/config/setting_user.php | cut -d "'" -f 4)
 		DB_NAME=$(grep "DB_NAME" $APKG_PKG_DIR/www/config/setting_user.php | cut -d "'" -f 4)
-		DB_PWD=$(grep "DB_PWD" $APKG_PKG_DIR/www/config/setting_user.php | cut -d "'" -f 4)
+		# DB_PWD=$(grep "DB_PWD" $APKG_PKG_DIR/www/config/setting_user.php | cut -d "'" -f 4)
 
 		if [ "$APKG_PKG_INST_VER" = 1.12 ];then
 			mv $APKG_PKG_DIR/www/config/update.php $APKG_PKG_DIR/www/app/
-			#mysql -u${DB_USER} -p${DB_PWD} ${DB_NAME} < $APKG_PKG_DIR/www/app/controller/install/data/update1.14/mysql.sql
+			# mysql -u${DB_USER} -p${DB_PWD} ${DB_NAME} < $APKG_PKG_DIR/www/app/controller/install/data/update1.14/mysql.sql
 		fi
 
 		case "${DB_NAME}" in
